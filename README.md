@@ -20,7 +20,9 @@
 
 ### Consistency in style :white_check_mark:
 
-## Choses intéressantes que j'ai apprises ici 
+---
+
+### Choses intéressantes que j'ai apprises ici 
 
 Liste de raccourcis (appris dans ce tuto, à connaître)
 - Rename symbol : <kbd>F2</kbd>
@@ -38,5 +40,27 @@ Nomenclature intéressante à garder :
 ```
 [endroit du code affecté (fonction, fichier..)] add, fix, modernize, update, resolve..
 ```
+---
 
 ## NIVEAU 2 :star2: :star2:
+
+### Make it work, then make it good :white_check_mark:
+
+### Prefer free functions :white_check_mark:
+
+### Design cohesive classes :white_check_mark:
+
+### Use structs to group data :white_check_mark:
+
+### Write small functions :white_check_mark:
+
+### DRY : Don't Repeat Yourself :white_check_mark:
+
+### Enums :white_check_mark:
+
+### Split problems into small pieces :clock130:
+
+### Composition and inheritance :clock130:
+
+---
+## Assignments
