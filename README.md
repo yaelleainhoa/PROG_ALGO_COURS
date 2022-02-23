@@ -29,8 +29,8 @@ Nomenclature intéressante à garder :
 
 ### Use static analysers :white_check_mark:
 
-### Naming 
+### Naming :white_check_mark:
 
-### Use static analysers Stack vs Heap
+### Use static analysers Stack vs Heap :white_check_mark:
 
-### Consistency in style
+### Consistency in style :white_check_mark:
