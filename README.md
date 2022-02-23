@@ -6,6 +6,24 @@
 
 ### Use an IDE :white_check_mark:
 
+### Use Git :white_check_mark:
+
+### Use a debugger :white_check_mark:
+
+### Use a formatting tool :white_check_mark:
+
+### Use static analysers :white_check_mark:
+
+### Naming :white_check_mark:
+
+### Use static analysers Stack vs Heap :white_check_mark:
+
+### Consistency in style :white_check_mark:
+
+---
+
+### Choses intéressantes que j'ai apprises ici 
+
 Liste de raccourcis (appris dans ce tuto, à connaître)
 - Rename symbol : <kbd>F2</kbd>
 - Peek pour ouvrir une portion de code
@@ -18,19 +36,31 @@ Pour build/run :
 - build : <kbd>F7</kbd>
 - run : <kbd>CTRL</kbd> + <kbd>F5</kbd>
 
-### Use Git :white_check_mark:
-
 Nomenclature intéressante à garder :
 ```
 [endroit du code affecté (fonction, fichier..)] add, fix, modernize, update, resolve..
 ```
+---
 
-### Use a formatting tool :white_check_mark:
+## NIVEAU 2 :star2: :star2:
 
-### Use static analysers :white_check_mark:
+### Make it work, then make it good :white_check_mark:
 
-### Naming :white_check_mark:
+### Prefer free functions :white_check_mark:
 
-### Use static analysers Stack vs Heap :white_check_mark:
+### Design cohesive classes :white_check_mark:
 
-### Consistency in style :white_check_mark:
+### Use structs to group data :white_check_mark:
+
+### Write small functions :white_check_mark:
+
+### DRY : Don't Repeat Yourself :white_check_mark:
+
+### Enums :white_check_mark:
+
+### Split problems into small pieces :clock130:
+
+### Composition and inheritance :clock130:
+
+---
+## Assignments
