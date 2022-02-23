@@ -1,3 +1,0 @@
-/home/yaelle/Documents/S4/PROG/PROG_ALGO_COURS/build/CMakeFiles/rebuild_cache.dir
-/home/yaelle/Documents/S4/PROG/PROG_ALGO_COURS/build/CMakeFiles/edit_cache.dir
-/home/yaelle/Documents/S4/PROG/PROG_ALGO_COURS/build/CMakeFiles/SimpleCpp.dir

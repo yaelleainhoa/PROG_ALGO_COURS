@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/yaelle/Documents/S4/PROG/PROG_ALGO_COURS/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/yaelle/Documents/S4/PROG/PROG_ALGO_COURS/NIV_1/Simple-Cpp-Setup-main/src  -g   -Werror -Wall -Wextra -Wpedantic -pedantic-errors -std=gnu++17 -o CMakeFiles/SimpleCpp.dir/src/main.cpp.o -c /home/yaelle/Documents/S4/PROG/PROG_ALGO_COURS/NIV_1/Simple-Cpp-Setup-main/src/main.cpp",
-  "file": "/home/yaelle/Documents/S4/PROG/PROG_ALGO_COURS/NIV_1/Simple-Cpp-Setup-main/src/main.cpp"
-}
-]
