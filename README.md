@@ -67,4 +67,5 @@ Nomenclature intéressante à garder :
 
 ### Guess the number :white_check_mark:
 
-### Hangman :white_check_mark:
+### Hangman :clock1:
+(still need to read the correction and see how I can improve my code)
