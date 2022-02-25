@@ -18,7 +18,7 @@ char get_letter_from_user()
     while (!is_a_letter) {
         std::cout << "Enter a letter : ";
         std::cin >> letter;
-        if (!((letter >= 97 && letter <= 122) or (letter <= 90 && letter >= 65))) {
+        if (!((letter >= 97 && letter <= 122) || (letter <= 90 && letter >= 65))) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "\nThat's not a letter, please try again....\n \n";
@@ -68,7 +68,7 @@ void loose_lives(int& lives, bool is_letter_in_word)
 
 void hangman()
 {
-    int         index_rand = rand(0, 15);
+    int         index_rand = rand(0, 14);
     std::string word       = random_words().at(index_rand);
     std::string hangman;
     char        letter;

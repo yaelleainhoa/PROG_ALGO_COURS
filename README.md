@@ -58,9 +58,13 @@ Nomenclature intéressante à garder :
 
 ### Enums :white_check_mark:
 
-### Split problems into small pieces :clock130:
+### Split problems into small pieces :white_check_mark:
 
-### Composition and inheritance :clock130:
+### Composition and inheritance :white_check_mark:
 
 ---
-## Assignments
+## Assignments :computer:
+
+### Guess the number :white_check_mark:
+
+### Hangman :white_check_mark:
