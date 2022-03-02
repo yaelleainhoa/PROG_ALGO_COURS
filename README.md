@@ -69,3 +69,6 @@ Nomenclature intéressante à garder :
 
 ### Hangman :clock1:
 (still need to read the correction and see how I can improve my code)
+
+### Menu :clock1:
+Not sure mosrr
