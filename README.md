@@ -67,8 +67,8 @@ Nomenclature intéressante à garder :
 
 ### Guess the number :white_check_mark:
 
-### Hangman :clock1:
-(still need to read the correction and see how I can improve my code)
+### Hangman :white_check_mark:
+(not sure if I can improve)
 
-### Menu :clock1:
-Not sure mosrr
+### Menu :white_check_mark:
+Not sure it's the most efficient...
