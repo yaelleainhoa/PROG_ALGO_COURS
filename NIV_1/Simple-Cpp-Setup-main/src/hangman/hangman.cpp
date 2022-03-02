@@ -106,15 +106,17 @@ void show_loose_mesage(std::string word)
 
 void show_lives(int lives, std::string hangman)
 {
-    std::cout << "LIVES : " << lives << std::endl;
-    std::cout << "hangman : " << hangman << std::endl
+    std::cout << "hangman : " << hangman << std::endl;
+    std::cout << "LIVES : " << lives << std::endl
               << std::endl;
+    ;
 }
 
-void hangman()
+void play_hangman()
 {
     Hangman_party party;
-    char          letter;
+    char          letter = '*';
+    std::cout << "Try to guess the following word : " << std::endl;
     while (party.is_player_alive() && !party.is_word_guessed()) {
         show_lives(party.get_lives(), party.get_hangman());
         letter = get_letter_from_user();

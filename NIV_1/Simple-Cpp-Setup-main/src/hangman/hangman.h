@@ -1,1 +1,1 @@
-void hangman();
+void play_hangman();
