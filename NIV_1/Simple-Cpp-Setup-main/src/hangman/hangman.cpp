@@ -3,13 +3,28 @@
 #include <limits>
 #include "../rand/rand.h"
 
-const std::array<std::string, 15>& random_words()
+std::string random_words()
 {
     static const std::array<std::string, 15> list_of_words = {"mot", "coucou", "chat", "chien", "rat", "lys",
                                                               "acajou", "azimut", "basson", "cercle", "coccyx",
                                                               "thym", "corse", "rhum", "tyran"};
-    return list_of_words;
+    return list_of_words.at(rand(0, list_of_words.size()));
 }
+
+// class Hangman {
+// public:
+//     Hangman(std::string word)
+//         : _word{word}
+//         , _hangman(word.size(), '*') // The invariant is enforced by the constructor here, and no public function of this class allows users to break the invariant, so we can guarantee that it will be preserved!
+//     {
+//     }
+
+//     void test_letter()
+
+// private:
+//     std::string _word;
+//     std::string _hangman;
+// };
 
 char get_letter_from_user()
 {
@@ -32,14 +47,14 @@ char get_letter_from_user()
 
 std::size_t position_letter(char letter_to_test, std::string word, std::size_t last_position)
 {
-    char        letter   = tolower(letter_to_test);
+    char        letter   = static_cast<char>(tolower(letter_to_test));
     std::size_t position = word.find(letter, last_position);
     return position;
 }
 
 void replace_letter(char letterToInsert, std::string& hangman, std::size_t position)
 {
-    char        letter = tolower(letterToInsert);
+    char        letter = static_cast<char>(tolower(letterToInsert));
     std::string str_letter(1, letter);
     hangman.replace(position, 1, str_letter);
 }
@@ -68,10 +83,27 @@ void loose_lives(int& lives, bool is_letter_in_word)
     }
 }
 
+void show_win_message(std::string word)
+{
+    std::cout << word << std::endl;
+    std::cout << "Congratulation !" << std::endl;
+}
+
+void show_loose_mesage(std::string word)
+{
+    std::cout << "You lost... the word was " << word << std::endl;
+}
+
+void show_lives(int lives, std::string hangman)
+{
+    std::cout << "LIVES : " << lives << std::endl;
+    std::cout << "hangman : " << hangman << std::endl
+              << std::endl;
+}
+
 void hangman()
 {
-    int         index_rand = rand(0, 14);
-    std::string word       = random_words().at(index_rand);
+    std::string word = random_words();
     std::string hangman;
     char        letter;
     bool        is_letter_in_word = false;
@@ -80,17 +112,15 @@ void hangman()
         hangman.append("*");
     }
     while (hangman != word && lives > 0) {
-        std::cout << "LIVES : " << lives << std::endl;
-        std::cout << hangman << std::endl;
+        show_lives(lives, hangman);
         letter            = get_letter_from_user();
         is_letter_in_word = test_letter(letter, word, hangman);
         loose_lives(lives, is_letter_in_word);
     }
     if (hangman == word) {
-        std::cout << hangman << std::endl;
-        std::cout << "Congratulation !" << std::endl;
+        show_win_message(hangman);
     }
     else {
-        std::cout << "You lost... the word was " << word << std::endl;
+        show_loose_mesage(word);
     }
 }
