@@ -24,15 +24,28 @@ void beginning_menu()
 void menu()
 {
     beginning_menu();
-    int              user_action      = 0;
+    char             user_action      = '0';
+    int              real_action      = 0;
     std::vector<int> actions_possible = actions();
-    while (std::cin >> user_action && !(std::find(actions_possible.begin(), actions_possible.end(), user_action) != actions_possible.end())) {
-        std::cout << "Sorry, I don't know this command..." << std::endl;
+    bool             action_allowed   = false;
+    while (!action_allowed && std::cin >> user_action) {
+        if (static_cast<int>(user_action) < 58 or static_cast<int>(user_action) < 48) {
+            real_action = static_cast<int>(user_action) - 48;
+        }
+        else {
+            real_action = static_cast<int>(user_action);
+        }
+        if (std::find(actions_possible.begin(), actions_possible.end(), real_action) != actions_possible.end()) {
+            action_allowed = true;
+        }
+        else {
+            std::cout << "Sorry, I don't know this command... try again please : " << std::endl;
+        }
     }
-    if (user_action == 1) {
+    if (real_action == 1) {
         play_guess_the_number();
     }
-    else if (user_action == 2) {
+    else if (real_action == 2) {
         play_hangman();
     }
     else {
