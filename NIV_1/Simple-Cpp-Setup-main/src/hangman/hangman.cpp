@@ -30,14 +30,16 @@ char get_letter_from_user()
     return letter;
 }
 
-std::size_t position_letter(char letter, std::string word, std::size_t last_position)
+std::size_t position_letter(char letter_to_test, std::string word, std::size_t last_position)
 {
+    char        letter   = tolower(letter_to_test);
     std::size_t position = word.find(letter, last_position);
     return position;
 }
 
-void replace_letter(char letter, std::string& hangman, std::size_t position)
+void replace_letter(char letterToInsert, std::string& hangman, std::size_t position)
 {
+    char        letter = tolower(letterToInsert);
     std::string str_letter(1, letter);
     hangman.replace(position, 1, str_letter);
 }
@@ -75,7 +77,7 @@ void hangman()
     bool        is_letter_in_word = false;
     int         lives             = 10;
     for (std::size_t i = 0; i < word.length(); i++) {
-        hangman.append("_");
+        hangman.append("*");
     }
     while (hangman != word && lives > 0) {
         std::cout << "LIVES : " << lives << std::endl;
