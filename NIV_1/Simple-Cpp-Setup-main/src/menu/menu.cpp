@@ -6,23 +6,12 @@
 #include "../guess_the_number/guess_the_number.h"
 #include "../hangman/hangman.h"
 
-struct Game {
-    Game(std::string name)
-        : m_name(name){};
-
-private:
-    std::string m_name;
-
-public:
-    std::string get_name() const { return m_name; };
-};
-
-void display_game(Game game, int command)
+void display_game(std::string game, int command)
 {
-    std::cout << command << " : Play " << game.get_name() << std::endl;
+    std::cout << command << " : Play " << game << std::endl;
 }
 
-void beginning_menu(const std::array<Game, 2>& games)
+void beginning_menu(const std::array<std::string, 2>& games)
 {
     std::cout << "What do you want to do ?" << std::endl
               << std::endl;
@@ -33,27 +22,44 @@ void beginning_menu(const std::array<Game, 2>& games)
     std::cout << std::endl;
 }
 
+char get_user_command()
+{
+    char user_command;
+    while (!(std::cin >> user_command)) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Please try again....\n";
+    }
+    return user_command;
+}
+
+void play(char user_command)
+{
+    enum Games { GUESS_THE_NUMBER = '0',
+                 HANGMAN          = '1',
+                 QUIT             = 'q' };
+    switch (user_command) {
+    case GUESS_THE_NUMBER:
+        play_guess_the_number();
+        break;
+    case HANGMAN:
+        play_hangman();
+        break;
+    case QUIT:
+        std::cout << "See you next time" << std::endl;
+        break;
+    default:
+        std::cout << "I don't know this command.. Please try again" << std::endl;
+        user_command = get_user_command();
+        play(user_command);
+        break;
+    }
+}
+
 void menu()
 {
-    Game                guess_the_number("Guess the number");
-    Game                hangman("Hangman");
-    std::array<Game, 2> games = {guess_the_number, hangman};
-    enum Games { GUESS_THE_NUMBER = 0,
-                 HANGMAN          = 1 };
+    std::array<std::string, 2> games = {"Guess the number", "Hangman"};
     beginning_menu(games);
-    int  user_command  = -1;
-    bool valid_command = false;
-    while (!valid_command && std::cin >> user_command) {
-        switch (user_command) {
-        case GUESS_THE_NUMBER:
-            valid_command = true;
-            play_guess_the_number();
-            break;
-        case HANGMAN:
-            valid_command = true;
-            play_hangman();
-            break;
-        }
-        std::cout << "not valid command " << std::endl;
-    }
+    char user_command = get_user_command();
+    play(user_command);
 }
