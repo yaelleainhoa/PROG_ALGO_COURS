@@ -1,54 +1,59 @@
 #include <algorithm>
+#include <array>
 #include <iostream>
 #include <iterator>
 #include <vector>
 #include "../guess_the_number/guess_the_number.h"
 #include "../hangman/hangman.h"
 
-const std::vector<int>& actions()
+struct Game {
+    Game(std::string name)
+        : m_name(name){};
+
+private:
+    std::string m_name;
+
+public:
+    std::string get_name() const { return m_name; };
+};
+
+void display_game(Game game, int command)
 {
-    static const std::vector<int> list_of_actions = {1, 2, static_cast<int>('q')};
-    return list_of_actions;
+    std::cout << command << " : Play " << game.get_name() << std::endl;
 }
 
-void beginning_menu()
+void beginning_menu(const std::array<Game, 2>& games)
 {
     std::cout << "What do you want to do ?" << std::endl
               << std::endl;
-    std::cout << "1 : Play 'Guess the number'" << std::endl;
-    std::cout << "2 : Play 'Hangman'" << std::endl;
-    std::cout << "q : quit :'( (why?)" << std::endl
-              << std::endl;
+    // int length = static_cast<int>(games.size());
+    for (int i = 0; i < 2; i++) {
+        display_game(games.at(i), i);
+    };
+    std::cout << std::endl;
 }
 
 void menu()
 {
-    beginning_menu();
-    char             user_action      = '0';
-    int              real_action      = 0;
-    std::vector<int> actions_possible = actions();
-    bool             action_allowed   = false;
-    while (!action_allowed && std::cin >> user_action) {
-        if (static_cast<int>(user_action) < 58 or static_cast<int>(user_action) < 48) {
-            real_action = static_cast<int>(user_action) - 48;
+    Game                guess_the_number("Guess the number");
+    Game                hangman("Hangman");
+    std::array<Game, 2> games = {guess_the_number, hangman};
+    enum Games { GUESS_THE_NUMBER = 0,
+                 HANGMAN          = 1 };
+    beginning_menu(games);
+    int  user_command  = -1;
+    bool valid_command = false;
+    while (!valid_command && std::cin >> user_command) {
+        switch (user_command) {
+        case GUESS_THE_NUMBER:
+            valid_command = true;
+            play_guess_the_number();
+            break;
+        case HANGMAN:
+            valid_command = true;
+            play_hangman();
+            break;
         }
-        else {
-            real_action = static_cast<int>(user_action);
-        }
-        if (std::find(actions_possible.begin(), actions_possible.end(), real_action) != actions_possible.end()) {
-            action_allowed = true;
-        }
-        else {
-            std::cout << "Sorry, I don't know this command... try again please : " << std::endl;
-        }
-    }
-    if (real_action == 1) {
-        play_guess_the_number();
-    }
-    else if (real_action == 2) {
-        play_hangman();
-    }
-    else {
-        std::cout << "See you next time, bye !" << std::endl;
+        std::cout << "not valid command " << std::endl;
     }
 }
